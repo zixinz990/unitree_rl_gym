@@ -1,7 +1,7 @@
 from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobotCfgPPO
 
 
-class G1_23RoughCfg(LeggedRobotCfg):
+class G1_21RoughCfg(LeggedRobotCfg):
     class init_state(LeggedRobotCfg.init_state):
         pos = [0.0, 0.0, 0.8]  # x,y,z [m]
         default_joint_angles = {  # = target angles [rad] when action = 0.0
@@ -22,19 +22,17 @@ class G1_23RoughCfg(LeggedRobotCfg):
             "left_shoulder_roll_joint": 0.0,
             "left_shoulder_yaw_joint": 0.0,
             "left_elbow_joint": 3.1415926 / 2.0,
-            "left_wrist_roll_joint": 0.0,
             "right_shoulder_pitch_joint": 0.0,
             "right_shoulder_roll_joint": 0.0,
             "right_shoulder_yaw_joint": 0.0,
             "right_elbow_joint": 3.1415926 / 2.0,
-            "right_wrist_roll_joint": 0.0,
             "torso_joint": 0.0,
         }
 
     class env(LeggedRobotCfg.env):
-        num_observations = 80
-        num_privileged_obs = 83
-        num_actions = 23
+        num_observations = 74
+        num_privileged_obs = 77
+        num_actions = 21
 
     class domain_rand(LeggedRobotCfg.domain_rand):
         randomize_friction = True
@@ -60,7 +58,6 @@ class G1_23RoughCfg(LeggedRobotCfg):
             "shoulder_roll": 100,
             "shoulder_yaw": 50,
             "elbow": 50,
-            "wrist": 20,
         }  # [N*m/rad]
         damping = {
             "hip_yaw": 2,
@@ -73,7 +70,6 @@ class G1_23RoughCfg(LeggedRobotCfg):
             "shoulder_roll": 2,
             "shoulder_yaw": 2,
             "elbow": 2,
-            "wrist": 1,
         }  # [N*m/rad]  # [N*m*s/rad]
         # action scale: target angle = actionScale * action + defaultAngle
         action_scale = 0.25
@@ -81,7 +77,7 @@ class G1_23RoughCfg(LeggedRobotCfg):
         decimation = 4
 
     class asset(LeggedRobotCfg.asset):
-        file = "{LEGGED_GYM_ROOT_DIR}/resources/robots/g1_description/g1_23dof_rev_1_0.urdf"
+        file = "{LEGGED_GYM_ROOT_DIR}/resources/robots/g1_description/g1_21dof_rev_1_0.urdf"
         name = "g1"
         foot_name = "ankle_roll"
         penalize_contacts_on = ["hip", "knee"]
@@ -92,6 +88,7 @@ class G1_23RoughCfg(LeggedRobotCfg):
     class rewards(LeggedRobotCfg.rewards):
         soft_dof_pos_limit = 0.9
         base_height_target = 0.78
+        only_positive_rewards = False
 
         class scales(LeggedRobotCfg.rewards.scales):
             tracking_lin_vel = 1.0
@@ -113,7 +110,7 @@ class G1_23RoughCfg(LeggedRobotCfg):
             contact = 0.18
 
 
-class G1_23RoughCfgPPO(LeggedRobotCfgPPO):
+class G1_21RoughCfgPPO(LeggedRobotCfgPPO):
     class policy:
         init_noise_std = 0.8
         actor_hidden_dims = [32]
@@ -131,4 +128,4 @@ class G1_23RoughCfgPPO(LeggedRobotCfgPPO):
         policy_class_name = "ActorCriticRecurrent"
         max_iterations = 10000
         run_name = ""
-        experiment_name = "g1_23"
+        experiment_name = "g1_21"
