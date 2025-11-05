@@ -14,11 +14,11 @@ from legged_gym.envs.g1.g1_env import G1Robot
 from legged_gym.envs.g1_18.g1_18_config import G1_18RoughCfg, G1_18RoughCfgPPO
 from legged_gym.envs.g1_18.g1_18_env import G1_18Robot
 
-from legged_gym.envs.g1_20_w_object.g1_20_w_object_config import (
-    G1_20_W_ObjectRoughCfg,
-    G1_20_W_ObjectRoughCfgPPO,
+from legged_gym.envs.g1_27_w_object.g1_27_w_object_config import (
+    G1_27_W_ObjectRoughCfg,
+    G1_27_W_ObjectRoughCfgPPO,
 )
-from legged_gym.envs.g1_20_w_object.g1_20_w_object_env import G1_20_W_ObjectRobot
+from legged_gym.envs.g1_27_w_object.g1_27_w_object_env import G1_27_W_ObjectRobot
 
 from legged_gym.envs.g1_21.g1_21_config import G1_21RoughCfg, G1_21RoughCfgPPO
 from legged_gym.envs.g1_21.g1_21_env import G1_21Robot
@@ -33,9 +33,9 @@ task_registry.register("h1_2", H1_2Robot, H1_2RoughCfg(), H1_2RoughCfgPPO())
 task_registry.register("g1", G1Robot, G1RoughCfg(), G1RoughCfgPPO())
 task_registry.register("g1_18", G1_18Robot, G1_18RoughCfg(), G1_18RoughCfgPPO())
 task_registry.register(
-    "g1_20_w_object",
-    G1_20_W_ObjectRobot,
-    G1_20_W_ObjectRoughCfg(),
-    G1_20_W_ObjectRoughCfgPPO(),
+    "g1_27_w_object",
+    G1_27_W_ObjectRobot,
+    G1_27_W_ObjectRoughCfg(),
+    G1_27_W_ObjectRoughCfgPPO(),
 )
 task_registry.register("g1_21", G1_21Robot, G1_21RoughCfg(), G1_21RoughCfgPPO())

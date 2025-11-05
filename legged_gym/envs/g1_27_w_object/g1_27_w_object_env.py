@@ -5,7 +5,7 @@ from isaacgym import gymtorch, gymapi, gymutil
 import torch
 
 
-class G1_20_W_ObjectRobot(LeggedRobot):
+class G1_27_W_ObjectRobot(LeggedRobot):
 
     def _get_noise_scale_vec(self, cfg):
         """Sets a vector used to scale the noise added to the observations.
