@@ -1056,7 +1056,7 @@
     </visual>
   </link>
   <joint name="right_hand_to_object_joint" type="fixed">
-    <origin xyz="0.9 0.08 0.0" rpy="0 0 0"/>
+    <origin xyz="0.8 0.08 0.0" rpy="0 0 0"/>
     <axis xyz="1 0 0"/>
     <parent link="right_rubber_hand"/>
     <child link="object"/>
