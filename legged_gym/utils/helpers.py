@@ -132,7 +132,7 @@ def get_args():
         {
             "name": "--task",
             "type": str,
-            "default": "go2",
+            "default": "g1_21",
             "help": "Resume training or start testing from a checkpoint. Overrides config file if provided.",
         },
         {
